@@ -125,7 +125,7 @@ import my_icon
 import speedtest
 from database import *
 
-version = "7.1"
+version = "8.0"
 
 
 class ToolTip:
@@ -577,6 +577,10 @@ def set_frame1(page_x):
     #    fg="white"
     # )
     button1 = ttk.Button(frame_text2, width=13, text="文字カウント", command=count)
+    tooltip1 = ToolTip(
+        button1,
+        text="文字数をカウントする機能です。\nクリックするとクリップボード内の文字列の文字数をカウントします。",
+    )
     button2 = ttk.Button(frame_text1, width=13, text="空白削除", command=blank)
     button3 = ttk.Button(frame_text1, width=13, text="置換", command=tikan)
     button4 = ttk.Button(frame_text2, width=13, text="ネット検索", command=serch)
@@ -10729,6 +10733,7 @@ def input_stop():
         root1.wm_attributes("-transparentcolor", "snow")
         root1.attributes("-alpha", 0.8)
         style = ttk.Style()
+        style.configure("Center.TButton", anchor="center")
         style.configure("Transparent.TFrame", background="gray")
         style.configure("Transparent.TFrame", borderwidth=0)
         style.configure("Transparent.TFrame", highlightthickness=0)
